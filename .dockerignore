@@ -1,0 +1,7 @@
+.git
+_build
+*.cmi
+*.cmo
+*.cmx
+*.o
+ft_ality

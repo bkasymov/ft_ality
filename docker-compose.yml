@@ -1,0 +1,6 @@
+services:
+  ocaml:
+    build: .
+    working_dir: /work
+    volumes:
+      - .:/work
