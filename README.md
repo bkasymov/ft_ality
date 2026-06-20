@@ -70,7 +70,7 @@ e -> X
 r -> Y
 t -> B
 Press mapped keys to execute moves immediately.
-Exit keys: Esc, Ctrl-D.
+Exit keys: Esc, Ctrl-D. Interrupt: Ctrl-C.
 ----------------------
 Down
 Right
@@ -336,8 +336,9 @@ overlap.gmr              overlapping short and long combos
 During runtime:
 
 ```text
-Esc    exits the program
-Ctrl-D exits the program
+Esc    exits the program normally
+Ctrl-D exits the program normally
+Ctrl-C interrupts the program through SIGINT
 ```
 
 Unknown keys reset the input buffer and the program keeps running.

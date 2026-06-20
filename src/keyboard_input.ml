@@ -210,7 +210,7 @@ let run_training_mode (automaton : Automaton.automaton) (symbols : Automaton.sym
       print_raw_line "Key mappings:";
       print_key_mapping mapping;
       print_raw_line "Press mapped keys to execute moves immediately.";
-      print_raw_line "Exit keys: Esc, Ctrl-D.";
+      print_raw_line "Exit keys: Esc, Ctrl-D. Interrupt: Ctrl-C.";
       print_raw_line "----------------------";
       setup_raw_terminal ();
       try
