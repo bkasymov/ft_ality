@@ -180,7 +180,7 @@ let process_input_character (automaton : Automaton.automaton) (mapping : key_map
     match find_symbol_for_key mapping input_key with
     | Some symbol ->
         let updated_buffer = append_recent_symbol buffer max_buffer_length symbol in
-        print_raw_line ("Input: " ^ symbol);
+        print_raw_line symbol;
         print_longest_recent_match automaton updated_buffer;
         updated_buffer
     | None ->
