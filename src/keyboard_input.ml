@@ -167,8 +167,8 @@ let input_key_name (character : char) : string =
     "Esc"
   else if character = '\004' then
     "Ctrl-D"
-  else if Char.code character < 32 || Char.code character = 127 then
-    "control-" ^ string_of_int (Char.code character)
+  else if character < ' ' || character = '\127' then
+    "control key"
   else
     String.make 1 character
 

@@ -6,29 +6,18 @@ type rule = {
 let is_not_empty (text : string) : bool =
   text <> ""
 
-let rec list_contains (items : string list) (wanted : string) : bool =
-  match items with
-  | [] ->
-      false
-  | first_item :: remaining_items ->
-      first_item = wanted || list_contains remaining_items wanted
-
-let rec unique_strings (items : string list) : string list =
+let unique_strings (items : string list) : string list =
   let rec unique_loop (remaining_items : string list) (known_items : string list) : string list =
     match remaining_items with
     | [] ->
-        []
+        List.rev known_items
     | first_item :: other_items ->
-        if list_contains known_items first_item then
+        if List.mem first_item known_items then
           unique_loop other_items known_items
         else
-          first_item :: unique_loop other_items (first_item :: known_items)
+          unique_loop other_items (first_item :: known_items)
   in
   unique_loop items []
-
-(* 
-  Fireball; Down, Right, X
-*)
 
 let parse_line (line : string) : rule option =
   match String.split_on_char ';' line with
@@ -106,6 +95,12 @@ let rec max_combo_length_loop (rules : rule list) (current_max : int) : int =
 
 let max_combo_length (rules : rule list) : int =
   max_combo_length_loop rules 0
+
+(*
+0 --Down--> 1 --Right--> 2 --X--> 3 => Fireball
+                            |
+                            --Y--> 4 => Iceball 
+ *)
 
 let rec train_automaton (rules : rule list) (automaton : Automaton.automaton) : Automaton.automaton =
   match rules with

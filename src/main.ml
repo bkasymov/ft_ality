@@ -24,9 +24,11 @@ let run_program (grammar_file : string) : int =
 
 let () =
   let exit_code =
-    if Array.length Sys.argv <> 2 then
-      (print_endline "Usage: ./ft_ality <grammar_file>"; 1)
-    else
-      run_program Sys.argv.(1)
+    match Sys.argv with
+    | [| _program_name; grammar_file |] ->
+        run_program grammar_file
+    | _ ->
+        print_endline "Usage: ./ft_ality <grammar_file>";
+        1
   in
   exit exit_code
