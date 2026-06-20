@@ -1,1 +1,21 @@
 docs/
+
+# Build artifacts
+ft_ality
+*.cmi
+*.cmo
+*.cmx
+*.cmxa
+*.cmxs
+*.o
+*.a
+*.annot
+
+# Local files
+.DS_Store
+
+# Scratch grammars used during local testing
+long_combo.gmr
+overlap.gmr
+space_symbols.gmr
+too_many_symbols.gmr
